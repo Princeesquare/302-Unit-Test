@@ -18,7 +18,7 @@ namespace GameTest
             }
 
             [TestMethod]
-            public void Form1_KeyDown_UpKey_IncreaseCarSpeed()
+            public void UpKey_IncreaseCarSpeed()
             {
                 // Arrange
                 var e = new KeyEventArgs(Keys.Up);
@@ -31,7 +31,7 @@ namespace GameTest
             }
 
             [TestMethod]
-            public void Form1_KeyDown_DownKey_DecreaseCarSpeed()
+            public void DownKey_DecreaseCarSpeed()
             {
                 // Arrange
                 var e = new KeyEventArgs(Keys.Down);
@@ -45,7 +45,7 @@ namespace GameTest
             }
 
             [TestMethod]
-            public void Form1_KeyDown_LeftKey_MoveCarLeft()
+            public void LeftKey_MoveCarLeft()
             {
                 // Arrange
                 var e = new KeyEventArgs(Keys.Left);
@@ -59,7 +59,7 @@ namespace GameTest
             }
 
             [TestMethod]
-            public void Form1_KeyDown_RightKey_MoveCarRight()
+            public void RightKey_MoveCarRight()
             {
                 // Arrange
                 var e = new KeyEventArgs(Keys.Right);
