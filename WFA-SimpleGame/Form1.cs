@@ -12,9 +12,9 @@ namespace WFA_SimpleGame
 {
     public partial class Form1 : Form
     {
-        private int CarSpeed = 0;
-        private int Collected_Coins = 0;
-        private int Time = 40;
+        public int CarSpeed = 0;
+        public int Collected_Coins = 0;
+        public int Time = 40;
         public void MoveLine()
         {
             if (Line1.Top > 500) Line1.Top = 0;
@@ -146,7 +146,7 @@ namespace WFA_SimpleGame
             Points();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode==Keys.Up && CarSpeed<20) CarSpeed++;
             if(e.KeyCode==Keys.Down && CarSpeed>0) CarSpeed--;
@@ -167,11 +167,6 @@ namespace WFA_SimpleGame
                 timer1.Enabled = false;
                 timer2.Enabled = false;
             }
-        }
-
-        private void Enemy1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

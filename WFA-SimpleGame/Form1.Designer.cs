@@ -146,7 +146,6 @@
             this.Enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Enemy1.TabIndex = 7;
             this.Enemy1.TabStop = false;
-            this.Enemy1.Click += new System.EventHandler(this.Enemy1_Click);
             // 
             // Enemy2
             // 
@@ -317,12 +316,7 @@
         private System.Windows.Forms.PictureBox Line4;
         private System.Windows.Forms.PictureBox RightLine;
         private System.Windows.Forms.PictureBox LeftLine;
-        private System.Windows.Forms.PictureBox MyCar;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox Enemy1;
-        private System.Windows.Forms.PictureBox Enemy2;
-        private System.Windows.Forms.PictureBox Enemy3;
-        private System.Windows.Forms.PictureBox Enemy4;
         private System.Windows.Forms.Label Finish;
         private System.Windows.Forms.PictureBox Coin1;
         private System.Windows.Forms.PictureBox Coin2;
@@ -331,6 +325,11 @@
         private System.Windows.Forms.Label Coins;
         private System.Windows.Forms.Label Timer;
         private System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.PictureBox MyCar;
+        public System.Windows.Forms.PictureBox Enemy1;
+        public System.Windows.Forms.PictureBox Enemy2;
+        public System.Windows.Forms.PictureBox Enemy3;
+        public System.Windows.Forms.PictureBox Enemy4;
     }
 }
 
