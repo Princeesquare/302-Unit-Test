@@ -9,7 +9,7 @@ namespace GameTest
     public class GameTest
 
     {
-        private CarRace carRace = new CarRace();
+        CarRace carRace = new CarRace();
         [TestMethod]
         public void CarSpeed_Increase()
         {
