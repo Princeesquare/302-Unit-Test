@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WFA_SimpleGame
 {
-    public partial class Form1 : Form
+    public partial class CarRace : Form
     {
         public int CarSpeed = 0;
         public int Collected_Coins = 0;
@@ -127,7 +127,7 @@ namespace WFA_SimpleGame
             }
 
         }
-        public Form1()
+        public CarRace()
         {
             InitializeComponent();
         }
@@ -154,7 +154,7 @@ namespace WFA_SimpleGame
             if (e.KeyCode == Keys.Right && MyCar.Right<370) MyCar.Left += 5;
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        public void timer2_Tick(object sender, EventArgs e)
         {
             if (Time > 0)
             {

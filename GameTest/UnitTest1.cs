@@ -9,68 +9,119 @@ namespace GameTest
     public class GameTest
 
     {
-            private Form1 _form;
+        private CarRace carRace = new CarRace();
+        [TestMethod]
+        public void CarSpeed_Increase()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Up);
+            carRace.CarSpeed = 10;
 
-            [TestInitialize]
-            public void Setup()
-            {
-                _form = new Form1();
-            }
+            carRace.Form1_KeyDown(null, args);
 
-            [TestMethod]
-            public void UpKey_IncreaseCarSpeed()
-            {
-                // Arrange
-                var e = new KeyEventArgs(Keys.Up);
+            Assert.AreEqual(11, carRace.CarSpeed);
+        }
+        [TestMethod]
+        public void LeftKey_MoveCarLeft()
+        {
+            var e = new KeyEventArgs(Keys.Left);
+            carRace.MyCar.Left = 50;
 
-                // Act
-                _form.Form1_KeyDown(null, e);
+            carRace.Form1_KeyDown(null, e);
 
-                // Assert
-                Assert.AreEqual(1, _form.CarSpeed);
-            }
+            Assert.AreEqual(45, carRace.MyCar.Left);
+        }
 
-            [TestMethod]
-            public void DownKey_DecreaseCarSpeed()
-            {
-                // Arrange
-                var e = new KeyEventArgs(Keys.Down);
-                _form.CarSpeed = 5;
+        [TestMethod]
+        public void CarSpeed()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Up);
+            carRace.CarSpeed = 20;
 
-                // Act
-                _form.Form1_KeyDown(null, e);
+            carRace.Form1_KeyDown(null, args);
 
-                // Assert
-                Assert.AreEqual(4, _form.CarSpeed);
-            }
+            Assert.AreEqual(20, carRace.CarSpeed);
+        }
 
-            [TestMethod]
-            public void LeftKey_MoveCarLeft()
-            {
-                // Arrange
-                var e = new KeyEventArgs(Keys.Left);
-                _form.MyCar.Left = 50;
+        [TestMethod]
+        public void CarSpeed_GreaterThan_Zero()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Down);
+            carRace.CarSpeed = 10;
 
-                // Act
-                _form.Form1_KeyDown(null, e);
+            carRace.Form1_KeyDown(null, args);
 
-                // Assert
-                Assert.AreEqual(45, _form.MyCar.Left);
-            }
+            Assert.AreEqual(9, carRace.CarSpeed);
+        }
 
-            [TestMethod]
-            public void RightKey_MoveCarRight()
-            {
-                // Arrange
-                var e = new KeyEventArgs(Keys.Right);
-                _form.MyCar.Left = 50;
+        [TestMethod]
+        public void Zero_CarSpeed()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Down);
+            carRace.CarSpeed = 0;
 
-                // Act
-                _form.Form1_KeyDown(null, e);
+            carRace.Form1_KeyDown(null, args);
 
-                // Assert
-                Assert.AreEqual(55, _form.MyCar.Left);
-            }
+            Assert.AreEqual(0, carRace.CarSpeed);
+        }
+
+        [TestMethod]
+        public void Car_Position100()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Left);
+            carRace.MyCar.Left = 100;
+
+            carRace.Form1_KeyDown(null, args);
+
+            Assert.AreEqual(95, carRace.MyCar.Left);
+        }
+
+        [TestMethod]
+        public void CarSpeed_Decrease()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Left);
+            carRace.MyCar.Left = 11;
+
+            carRace.Form1_KeyDown(null, args);
+
+            Assert.AreEqual(11, carRace.MyCar.Left);
+        }
+
+        [TestMethod]
+        public void CarLeft_Position()
+        {
+            KeyEventArgs args = new KeyEventArgs(Keys.Right);
+            carRace.MyCar.Left = 300;
+
+            carRace.Form1_KeyDown(null, args);
+
+            Assert.AreEqual(305, carRace.MyCar.Left);
+        }
+
+        [TestMethod]
+        public void CarRight_Position()
+        {
+            
+            KeyEventArgs args = new KeyEventArgs(Keys.Right);
+            carRace.MyCar. Left = 370;
+            
+            carRace.Form1_KeyDown(null, args);
+            
+            Assert.AreEqual(370, carRace.MyCar.Left);
+        }
+
+        [TestMethod]
+        public void Other_KeyCodes()
+        {
+            
+            KeyEventArgs args = new KeyEventArgs(Keys.A);
+            carRace.CarSpeed = 10;
+            carRace.MyCar.Left = 100;
+            
+            carRace.Form1_KeyDown(null, args);
+            
+            Assert.AreEqual(10, carRace.CarSpeed);
+            Assert.AreEqual(100, carRace.MyCar.Left);
+        }
     }
 
 }
